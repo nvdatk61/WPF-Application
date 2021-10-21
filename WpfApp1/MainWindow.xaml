@@ -5,34 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-
+        Title="DemoWPF_MVVM" Height="450" Width="800">
   <Grid>
-    
-
+    <!--<Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="*" />
+      
+    </Grid.ColumnDefinitions>-->
     <StackPanel Margin="0,0,533,0">
       <Label Content="Project Pro Max"/>
-      <Button Width="57" Content="New"/>
-      <ListBox>
-        <ListBoxItem>ListBox Item #1</ListBoxItem>
-        <ListBoxItem>ListBox Item #2</ListBoxItem>
-        <ListBoxItem>ListBox Item #3</ListBoxItem>
-        <ListBoxItem>Item #4</ListBoxItem>
-      </ListBox>
+      <Button Width="57" Content="New" Name="btnNew" />
+      <ListView Name="ListView">
+        <ListViewItem>ListBox Item #1</ListViewItem>
+        <ListViewItem>ListBox Item #2</ListViewItem>
+        <ListViewItem>ListBox Item #3</ListViewItem>
+        <ListViewItem>Item #4</ListViewItem>
+      </ListView>
     </StackPanel>
     <StackPanel Margin="269,-1,261,1">
-      <StackPanel Grid.ColumnSpan="3" Grid.Row="5" >
-        <Label Content="Name of Note" />
-        <Button Content="Save" Width="76" HorizontalAlignment="Right" />
-        <Button Content="Delete" Width="76" HorizontalAlignment="Right"/>
-
+      <StackPanel Height="50">
+        <Canvas>
+          <Label Content="Name of Note" />
+          <Button Content="Save" Name="btnSave" Width="76" Canvas.Right="80" />
+          <Button Content="Delete" Name="btnDelete" Width="76" Canvas.Right="0"/>
+        </Canvas>
       </StackPanel>
-      <TextBox Height="307">
-        
-      </TextBox>
+      <TextBox Height="307"/>
     </StackPanel>
     <StackPanel Margin="544,0,0,0">
+      <StackPanel Background="Aqua">
       <Label Content="Property"/>
+      </StackPanel>
+      <StackPanel>
       <Label Content="Created time: ">
         
       </Label>
@@ -45,6 +49,7 @@
       <Label Content="Number of character: ">
         
       </Label>
+      </StackPanel>
     </StackPanel>
 
   </Grid>
