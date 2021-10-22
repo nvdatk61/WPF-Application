@@ -13,10 +13,10 @@ namespace DemoWPF.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class dempwpfEntities : DbContext
+    public partial class dempwpfEntities1 : DbContext
     {
-        public dempwpfEntities()
-            : base("name=dempwpfEntities")
+        public dempwpfEntities1()
+            : base("name=dempwpfEntities1")
         {
         }
     

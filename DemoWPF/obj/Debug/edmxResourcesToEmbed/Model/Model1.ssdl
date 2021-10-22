@@ -1,26 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="dempwpfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'dempwpf.dbo.item' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="item">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
-    <Property Name="ID" Type="int" Nullable="false" />
-    <Property Name="Name" Type="char" MaxLength="45" />
-    <Property Name="Content" Type="char" MaxLength="45" />
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Content" Type="varchar" MaxLength="50" />
     <Property Name="Created" Type="datetime" />
     <Property Name="Updated" Type="datetime" />
   </EntityType>
   <EntityContainer Name="dempwpfModelStoreContainer">
-    <EntitySet Name="item" EntityType="Self.item" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [item].[ID] AS [ID], 
-    [item].[Name] AS [Name], 
-    [item].[Content] AS [Content], 
-    [item].[Created] AS [Created], 
-    [item].[Updated] AS [Updated]
-    FROM [dbo].[item] AS [item]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

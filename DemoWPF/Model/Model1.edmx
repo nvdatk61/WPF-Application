@@ -5,28 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="dempwpfModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'dempwpf.dbo.item' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="item">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" Nullable="false" />
-          <Property Name="Name" Type="char" MaxLength="45" />
-          <Property Name="Content" Type="char" MaxLength="45" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Content" Type="varchar" MaxLength="50" />
           <Property Name="Created" Type="datetime" />
           <Property Name="Updated" Type="datetime" />
         </EntityType>
         <EntityContainer Name="dempwpfModelStoreContainer">
-          <EntitySet Name="item" EntityType="Self.item" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [item].[ID] AS [ID], 
-    [item].[Name] AS [Name], 
-    [item].[Content] AS [Content], 
-    [item].[Created] AS [Created], 
-    [item].[Updated] AS [Updated]
-    FROM [dbo].[item] AS [item]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="item" EntityType="Self.item" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -37,13 +27,13 @@ warning 6002: The table/view 'dempwpf.dbo.item' does not have a primary key defi
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="45" FixedLength="true" Unicode="false" />
-          <Property Name="Content" Type="String" MaxLength="45" FixedLength="true" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Content" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Created" Type="DateTime" Precision="3" />
           <Property Name="Updated" Type="DateTime" Precision="3" />
         </EntityType>
-        <EntityContainer Name="dempwpfEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="dempwpfEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="items" EntityType="Self.item" />
         </EntityContainer>
       </Schema>
@@ -51,7 +41,7 @@ warning 6002: The table/view 'dempwpf.dbo.item' does not have a primary key defi
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="dempwpfModelStoreContainer" CdmEntityContainer="dempwpfEntities">
+        <EntityContainerMapping StorageEntityContainer="dempwpfModelStoreContainer" CdmEntityContainer="dempwpfEntities1">
           <EntitySetMapping Name="items">
             <EntityTypeMapping TypeName="dempwpfModel.item">
               <MappingFragment StoreEntitySet="item">

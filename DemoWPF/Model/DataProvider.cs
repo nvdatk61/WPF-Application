@@ -20,10 +20,10 @@ namespace DemoWPF.Model
         _ins = value;
       }
     }
-    public dempwpfEntities DB { get; set; }
+    public dempwpfEntities1 DB { get; set; }
     private DataProvider()
     {
-      DB = new dempwpfEntities();
+      DB = new dempwpfEntities1();
     }
     
   }
